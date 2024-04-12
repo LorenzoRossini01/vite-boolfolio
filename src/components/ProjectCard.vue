@@ -7,7 +7,7 @@ export default {
   computed: {
     abstract() {
       return this.project.description.length > 25
-        ? this.project.description.substr(1, 25) + "..."
+        ? this.project.description.substr(0, 25) + "..."
         : this.project.description;
     },
   },
