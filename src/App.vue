@@ -1,6 +1,8 @@
 <script>
 import axios from "axios";
 import { api, store } from "./store";
+import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   data() {
@@ -8,6 +10,11 @@ export default {
       store,
       title: "Boolfolio",
     };
+  },
+
+  components: {
+    AppHeader,
+    AppMain,
   },
 
   methods: {
@@ -25,16 +32,8 @@ export default {
 </script>
 
 <template>
-  <h1>{{ title }}</h1>
-  <div v-for="project in store.projects">
-    <ul>
-      <li><strong>title: </strong>{{ project.title }}</li>
-      <li><strong>description: </strong>{{ project.description }}</li>
-      <li><strong>link: </strong>{{ project.link }}</li>
-      <li><strong>img: </strong>{{ project.imageUrl }}</li>
-    </ul>
-    <hr />
-  </div>
+  <AppHeader :title="title"></AppHeader>
+  <AppMain :projects="store.projects"></AppMain>
 </template>
 
 <style lang="scss">
