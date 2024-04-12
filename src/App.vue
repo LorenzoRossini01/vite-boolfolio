@@ -17,23 +17,17 @@ export default {
     AppMain,
   },
 
-  methods: {
-    fetchProjects(endpoint = api.baseUrl + "projects") {
-      axios.get(endpoint).then((response) => {
-        store.projects = response.data.data;
-      });
-    },
-  },
+  methods: {},
 
   created() {
-    this.fetchProjects();
+    store.fetchProjects();
   },
 };
 </script>
 
 <template>
   <AppHeader :title="title"></AppHeader>
-  <AppMain :projects="store.projects"></AppMain>
+  <AppMain :projects="store.projects" :pagination="store.pagination"></AppMain>
 </template>
 
 <style lang="scss">

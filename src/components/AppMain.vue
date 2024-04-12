@@ -1,8 +1,17 @@
 <script>
 import ProjectCard from "../components/ProjectCard.vue";
+import { store } from "../store";
+
 export default {
+  data() {
+    return {
+      store,
+    };
+  },
+
   props: {
     projects: Array,
+    pagination: Array,
   },
 
   components: {
@@ -20,6 +29,19 @@ export default {
           v-for="project in projects"
           :project="project"
         ></ProjectCard>
+
+        <nav aria-label="..." class="mt-3">
+          <ul class="pagination">
+            <li
+              class="page-item"
+              :class="{ active: link.active, disabled: !link.url }"
+              v-for="link in pagination"
+              @click="store.fetchProjects(link.url)"
+            >
+              <a class="page-link" v-html="link.label"></a>
+            </li>
+          </ul>
+        </nav>
       </div>
       <div class="col-4"></div>
     </div>
