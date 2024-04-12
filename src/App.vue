@@ -1,18 +1,19 @@
 <script>
 import axios from "axios";
+import { api, store } from "./store";
 
 export default {
   data() {
     return {
+      store,
       title: "Boolfolio",
-      projects: [],
     };
   },
 
   methods: {
-    fetchProjects(endpoint = "http://127.0.0.1:8000/api/projects") {
+    fetchProjects(endpoint = api.baseUrl + "projects") {
       axios.get(endpoint).then((response) => {
-        this.projects = response.data.data;
+        store.projects = response.data.data;
       });
     },
   },
@@ -25,7 +26,7 @@ export default {
 
 <template>
   <h1>{{ title }}</h1>
-  <div v-for="project in projects">
+  <div v-for="project in store.projects">
     <ul>
       <li><strong>title: </strong>{{ project.title }}</li>
       <li><strong>description: </strong>{{ project.description }}</li>
