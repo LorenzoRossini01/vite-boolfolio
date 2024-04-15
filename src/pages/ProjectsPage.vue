@@ -10,9 +10,10 @@ export default {
     };
   },
 
-  props: {
-    projects: Array,
-    pagination: Array,
+  methods: {
+    fetchProjectsList(link) {
+      store.fetchProjects(link);
+    },
   },
 
   components: {
@@ -20,10 +21,8 @@ export default {
     PaginationUI,
   },
 
-  methods: {
-    fetchProjectsList(link) {
-      store.fetchProjects(link);
-    },
+  created() {
+    store.fetchProjects();
   },
 };
 </script>
@@ -34,32 +33,19 @@ export default {
       <div class="col-1"></div>
       <div class="col-8">
         <PaginationUI
-          :pagination="pagination"
+          :pagination="store.pagination"
           @change-page="fetchProjectsList"
         ></PaginationUI>
 
         <ProjectCard
-          v-for="project in projects"
+          v-for="project in store.projects"
           :project="project"
         ></ProjectCard>
 
         <PaginationUI
-          :pagination="pagination"
+          :pagination="store.pagination"
           @change-page="fetchProjectsList"
         ></PaginationUI>
-
-        <!-- <nav aria-label="..." class="mt-3">
-          <ul class="pagination">
-            <li
-              class="page-item"
-              :class="{ active: link.active, disabled: !link.url }"
-              v-for="link in pagination"
-              @click="store.fetchProjects(link.url)"
-            >
-              <a class="page-link" v-html="link.label"></a>
-            </li>
-          </ul>
-        </nav> -->
       </div>
       <div class="col-4"></div>
     </div>
