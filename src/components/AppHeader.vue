@@ -9,7 +9,9 @@ export default {
 <template>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">{{ title }}</a>
+      <router-link class="navbar-brand" :to="{ name: 'home' }">{{
+        title
+      }}</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -24,7 +26,20 @@ export default {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <router-link
+              class="nav-link active"
+              aria-current="page"
+              :to="{ name: 'home' }"
+              >Home</router-link
+            >
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link active"
+              aria-current="page"
+              :to="{ name: 'projects' }"
+              >Projects</router-link
+            >
           </li>
         </ul>
       </div>

@@ -2,7 +2,7 @@
 import axios from "axios";
 import { api, store } from "./store";
 import AppHeader from "./components/AppHeader.vue";
-import AppMain from "./components/AppMain.vue";
+import ProjectList from "./components/ProjectList.vue";
 
 export default {
   data() {
@@ -14,7 +14,7 @@ export default {
 
   components: {
     AppHeader,
-    AppMain,
+    ProjectList,
   },
 
   methods: {},
@@ -27,7 +27,11 @@ export default {
 
 <template>
   <AppHeader :title="title"></AppHeader>
-  <AppMain :projects="store.projects" :pagination="store.pagination"></AppMain>
+
+  <router-view
+    :projects="store.projects"
+    :pagination="store.pagination"
+  ></router-view>
 </template>
 
 <style lang="scss">
