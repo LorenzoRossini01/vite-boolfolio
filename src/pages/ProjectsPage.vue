@@ -1,7 +1,8 @@
 <script>
 import ProjectCard from "../components/ProjectCard.vue";
 import PaginationUI from "../components/ui/PaginationUI.vue";
-import { store } from "../store";
+import { api, store } from "../store";
+import axios from "axios";
 
 export default {
   data() {
@@ -11,6 +12,13 @@ export default {
   },
 
   methods: {
+    fetchProjects(endpoint = api.baseUrl + "projects") {
+      axios.get(endpoint).then((response) => {
+        store.projects = response.data.data;
+        store.pagination = response.data.links;
+        window.scrollTo(0, 0);
+      });
+    },
     fetchProjectsList(link) {
       store.fetchProjects(link);
     },
@@ -22,7 +30,7 @@ export default {
   },
 
   created() {
-    store.fetchProjects();
+    this.fetchProjects();
   },
 };
 </script>

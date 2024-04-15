@@ -71,6 +71,7 @@ ul {
 .card {
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.037);
+  box-shadow: 0px 5px 10px -9px rgba(255, 255, 255, 0.648);
 
   .card-header {
     height: 100px;

@@ -17,12 +17,12 @@ export const store = reactive({
     });
   },
 
-  fetchProjectDetail(project) {
-    // #todo sistemare errore
-    const projectSlug = this.$route.params.slug;
-    axios.get(api.baseUrl + `projects/${projectSlug}`).then((response) => {
-      console.log(response.data);
-      project = response.data;
-    });
-  },
+  //   fetchProjectDetail(project) {
+  //     // #todo sistemare errore
+  //     const projectSlug = this.$route.params.slug;
+  //     axios.get(api.baseUrl + `projects/${projectSlug}`).then((response) => {
+  //       console.log(response.data);
+  //       project = response.data;
+  //     });
+  //   },
 });
