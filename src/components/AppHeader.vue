@@ -37,7 +37,7 @@ export default {
             <router-link
               class="nav-link active"
               aria-current="page"
-              :to="{ name: 'projects' }"
+              :to="{ name: 'projects.index' }"
               >Projects</router-link
             >
           </li>
