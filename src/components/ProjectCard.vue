@@ -16,6 +16,14 @@ export default {
 
 <template>
   <div class="card mt-4">
+    <div class="card-header">
+      <img
+        class="img-fluid profile-pic"
+        src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+        alt=""
+      />
+      <span class="username"> {{ project.user.name }} </span>
+    </div>
     <div class="img-container">
       <img
         :src="
@@ -58,6 +66,26 @@ ul {
 }
 .card {
   border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.037);
+
+  .card-header {
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    .profile-pic {
+      aspect-ratio: 1;
+      height: 75px;
+      width: 75px;
+      border-radius: 50%;
+      border: 2px solid red;
+    }
+    .username {
+      margin-left: 1.5rem;
+      text-transform: capitalize;
+    }
+  }
+
   .img-container {
     position: relative;
     height: 500px;
