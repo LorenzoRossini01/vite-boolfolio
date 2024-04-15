@@ -25,13 +25,17 @@ export default {
       <span class="username"> {{ project.user.name }} </span>
     </div>
     <div class="img-container">
-      <img
-        :src="
-          project.imageUrl ? project.imageUrl : 'https://placehold.co/600x400'
-        "
-        class="card-img-top"
-        alt="..."
-      />
+      <router-link
+        :to="{ name: 'projects.show', params: { slug: project.slug } }"
+      >
+        <img
+          :src="
+            project.imageUrl ? project.imageUrl : 'https://placehold.co/600x400'
+          "
+          class="card-img-top"
+          alt="..."
+        />
+      </router-link>
       <span class="badge" :style="'background-color:' + project.category.color"
         >{{ project.category.label }}
       </span>
