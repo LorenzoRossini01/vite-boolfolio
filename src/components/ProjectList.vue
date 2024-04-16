@@ -13,12 +13,20 @@ export default {
 
   computed: {
     apiEndpoint() {
-      if (!this.$route.params.category_id) {
-        return api.baseUrl + "projects";
-      } else {
+      if (this.$route.params.category_id) {
         const projectCategoryId = this.$route.params.category_id;
 
         return api.baseUrl + `category/${projectCategoryId}`;
+      }
+
+      if (this.$route.params.tag_id) {
+        const projectTagId = this.$route.params.tag_id;
+
+        return api.baseUrl + `tag/${projectTagId}`;
+      }
+
+      if (!this.$route.params.category_id && !this.$route.params.tag_id) {
+        return api.baseUrl + "projects";
       }
     },
   },

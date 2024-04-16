@@ -12,6 +12,11 @@ export default {
         ? parseInt(this.$route.params.category_id)
         : false;
     },
+    tag_id() {
+      return this.$route.params.tag_id
+        ? parseInt(this.$route.params.tag_id)
+        : false;
+    },
   },
 
   components: {
@@ -21,7 +26,10 @@ export default {
 </script>
 
 <template>
-  <ProjectList :category_id="category_id" :key="category_id"></ProjectList>
+  <ProjectList
+    :category_id="category_id"
+    :key="(category_id, tag_id)"
+  ></ProjectList>
 </template>
 
 <style lang="scss" scoped></style>

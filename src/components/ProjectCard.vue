@@ -59,7 +59,13 @@ export default {
     <div class="card-footer">
       <ul>
         <li v-for="tag in project.tags" class="me-2">
-          <a href="#">#{{ tag.label }}</a>
+          <router-link
+            :to="{
+              name: 'projects.filter-by-tag',
+              params: { tag_id: tag.id },
+            }"
+            >#{{ tag.label }}</router-link
+          >
         </li>
       </ul>
     </div>

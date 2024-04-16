@@ -27,6 +27,11 @@ const router = createRouter({
       name: "projects.filter-by-caregory",
       component: ProjectsPage,
     },
+    {
+      path: "/tag/:tag_id",
+      name: "projects.filter-by-tag",
+      component: ProjectsPage,
+    },
   ],
 });
 
