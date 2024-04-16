@@ -27,4 +27,8 @@ export default {
 
 <style lang="scss">
 @use "/src/scss/general.scss";
+
+a {
+  text-decoration: none;
+}
 </style>

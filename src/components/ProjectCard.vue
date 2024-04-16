@@ -15,14 +15,14 @@ export default {
 </script>
 
 <template>
-  <div class="card mt-4">
-    <div class="card-header">
-      <img
-        class="img-fluid profile-pic"
-        src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-        alt=""
-      />
-      <span class="username"> {{ project.user.name }} </span>
+  <div class="card mt-4" :class="this.$route.params.user_id ? 'h-100' : ''">
+    <div class="card-header" v-if="!this.$route.params.user_id">
+      <router-link
+        :to="{ name: 'user.show', params: { user_id: project.user_id } }"
+      >
+        <img class="img-fluid profile-pic" :src="project.user.image" alt="" />
+        <span class="username"> {{ project.user.name }} </span>
+      </router-link>
     </div>
     <div class="img-container">
       <router-link

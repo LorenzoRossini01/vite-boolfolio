@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import ProjectDetailPage from "./pages/ProjectDetailPage.vue";
 import ProjectsPage from "./pages/ProjectsPage.vue";
 import HomePage from "./pages/HomePage.vue";
+import UserPage from "./pages/UserPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -31,6 +32,11 @@ const router = createRouter({
       path: "/tag/:tag_id",
       name: "projects.filter-by-tag",
       component: ProjectsPage,
+    },
+    {
+      path: "/user/:user_id",
+      name: "user.show",
+      component: UserPage,
     },
   ],
 });
