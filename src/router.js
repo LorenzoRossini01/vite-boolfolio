@@ -22,6 +22,11 @@ const router = createRouter({
       name: "projects.show",
       component: ProjectDetailPage,
     },
+    {
+      path: "/category/:category_id",
+      name: "projects.filter-by-caregory",
+      component: ProjectsPage,
+    },
   ],
 });
 

@@ -36,9 +36,15 @@ export default {
           alt="..."
         />
       </router-link>
-      <span class="badge" :style="'background-color:' + project.category.color"
+      <router-link
+        :to="{
+          name: 'projects.filter-by-caregory',
+          params: { category_id: project.category_id },
+        }"
+        class="badge"
+        :style="'background-color:' + project.category.color"
         >{{ project.category.label }}
-      </span>
+      </router-link>
     </div>
     <div class="card-body">
       <h5 class="card-title">

@@ -40,11 +40,15 @@ export default {
             class="card-img-top"
             alt="..."
           />
-          <span
+          <router-link
+            :to="{
+              name: 'projects.filter-by-caregory',
+              params: { category_id: project.category_id },
+            }"
             class="badge"
             :style="'background-color:' + project.category.color"
             >{{ project.category.label }}
-          </span>
+          </router-link>
         </div>
       </div>
       <div class="col-12 col-lg-6">
